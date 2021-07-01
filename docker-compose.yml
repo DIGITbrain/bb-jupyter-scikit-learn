@@ -1,0 +1,12 @@
+version: "3"
+services:
+  pytorch:
+    image: digitbrain/bb-jupyter-pytorch:latest
+    container_name: pytorch
+    restart: always
+    ports:
+      - 8888:8888
+    environment:
+      - JUPYTER_PASSWORD=jupyterlab
+    volumes:
+      - ./pytorch/data:/pytorch
