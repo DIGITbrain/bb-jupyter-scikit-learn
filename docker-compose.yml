@@ -1,12 +1,14 @@
 version: "3"
 services:
-  pytorch:
-    image: digitbrain/bb-jupyter-pytorch:latest
-    container_name: pytorch
+  scikitlearn:
+    image: dbs-container-repo.emgora.eu/bb-jupyter-scikit-learn
+    container_name: scikit-learn
     restart: always
     ports:
-      - 8888:8888
+      # - 8888:8888
+    - target: '8888'
+      published: '8888'
+      protocol: tcp
+      mode: host
     environment:
       - JUPYTER_PASSWORD=jupyterlab
-    volumes:
-      - ./pytorch/data:/pytorch
