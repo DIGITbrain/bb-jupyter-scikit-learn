@@ -1,10 +1,10 @@
-FROM python:3.9-slim
+FROM python:3-slim
 
 ENV PATH=/root/.local/bin:$PATH
 
 # Install the required stack
-RUN pip install --user "jupyterlab>=3,<4" \
-    "scikit-learn>=0,<1" \
+RUN pip install --user "jupyterlab>=4,<5" \
+    "scikit-learn>=1,<2" \
     pandas \
     numpy \
     matplotlib
@@ -18,5 +18,4 @@ COPY ./docker-entrypoint.sh /
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-CMD ["--allow-root", "--no-browser", "--ip=0.0.0.0", "--port=8888", "--config=/var/lib/jupyter/jupyter_lab_config.py", "--notebook-dir=/"]
-
+CMD ["--allow-root", "--no-browser", "--ip=0.0.0.0", "--port=8888", "--config=/var/lib/jupyter/jupyter_lab_config.py", "--notebook-dir=/example"]

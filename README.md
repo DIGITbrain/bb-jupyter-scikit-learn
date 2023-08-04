@@ -14,7 +14,7 @@ BSD-3-Clause License
 
 ## Version
 
-0.24.1
+1.x
 
 ## Description
 
